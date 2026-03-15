@@ -658,7 +658,7 @@ const MEMBERS_DATA = [
         id: 14,
         name: "颜测",
         profession: "画师",
-        avatar: "assets/images/avatar/76.webp",
+        avatar: "assets/images/avatar/14.webp",
         intro: "",
         main: "painting",
         businesses: [
