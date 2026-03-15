@@ -1116,12 +1116,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initEventListeners();
     renderMembers();
     renderPagination();
-
-    // 隐藏加载动画
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-        loadingScreen.classList.add('hidden');
-    }
 });
 
 // --- UI 初始化相关 ---

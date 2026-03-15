@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'FuyeMainFont';
+    src: url('../assets/fonts/免费商用_鼎猎宋刻体.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --primary: #7A9987;
     --primary-dark: #637E6F;
@@ -9,7 +17,7 @@
     --card-bg: #FFFFFF;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --border-radius: 8px;
-    --font-main: "Noto Serif SC", "Songti SC", "SimSun", serif; /* 国风字体设置，备用宋体 */
+    --font-main: "FuyeMainFont", "Noto Serif SC", "Songti SC", "SimSun", serif; /* 国风字体设置，备用宋体 */
 }
 
 * {

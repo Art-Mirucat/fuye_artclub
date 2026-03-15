@@ -10,12 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 页面加载完成后隐藏加载动画
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-        loadingScreen.classList.add('hidden');
-    }
-
     // 通用图片放大查看功能
     const zoomableImages = document.querySelectorAll('.zoomable-image');
     if (zoomableImages.length > 0) {
@@ -71,12 +65,71 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // 启动资源加载监听
+    initResourceLoader();
 });
 
-// 确保在所有资源加载完毕后彻底隐藏加载动画
-window.addEventListener('load', () => {
+/**
+ * 隐藏加载动画
+ */
+function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
+    if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
         loadingScreen.classList.add('hidden');
     }
+}
+
+/**
+ * 同时监听图片和字体的加载状态
+ */
+async function initResourceLoader() {
+    const imagePromise = new Promise((resolve) => {
+        const images = document.images;
+        const totalImages = images.length;
+        let loadedImages = 0;
+
+        if (totalImages === 0) {
+            resolve();
+            return;
+        }
+
+        const imageLoaded = () => {
+            loadedImages++;
+            if (loadedImages >= totalImages) {
+                resolve();
+            }
+        };
+
+        for (let i = 0; i < totalImages; i++) {
+            if (images[i].complete) {
+                imageLoaded();
+            } else {
+                images[i].addEventListener('load', imageLoaded);
+                images[i].addEventListener('error', imageLoaded);
+            }
+        }
+    });
+
+    // 监听字体加载
+    const fontPromise = document.fonts.ready;
+
+    // 等待图片和字体都就绪
+    try {
+        await Promise.all([imagePromise, fontPromise]);
+        hideLoadingScreen();
+    } catch (err) {
+        console.error("资源加载出错:", err);
+        hideLoadingScreen(); // 出错也隐藏，防止卡死
+    }
+}
+
+/**
+ * 兜底方案：确保在所有资源彻底加载完毕后隐藏
+ */
+window.addEventListener('load', () => {
+    hideLoadingScreen();
 });
+
+// 如果 10 秒后还没加载完，强制关闭加载动画
+setTimeout(hideLoadingScreen, 10000);
