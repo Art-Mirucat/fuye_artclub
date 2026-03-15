@@ -3,7 +3,7 @@
 const ANNOUNCEMENTS_DATA = [
     {
         id: 1,
-        date: "2026-09-10",
+        date: "2026-03-15",
         content: "覆野画社专属网站正式上线！"
     }
 ];
