@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>覆野画社 - 联系页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/favicon.webp" type="image/svg+xml"> 
+</head>
+<body>
+    <!-- 加载遮罩层 -->
+    <div id="loadingScreen" class="loading-screen">
+        <img class="loading-banner" src="assets/images/ui/loading.webp" alt="加载中">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">正在加载...</p>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">覆野画社</div>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="rules.html">规则页</a></li>
+                <li><a href="members.html">社员页</a></li>
+                <li><a href="announcements.html">公告页</a></li>
+                <li><a href="contact.html" class="active">联系页</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">联系我们</h1>
+            
+            <div class="contact-grid" style="grid-template-columns: 1fr;">
+                <div class="contact-card">
+                    <h2>关注我们</h2>
+                    <p style="margin-bottom: 16px; color: var(--text-light);">关注覆野画社的最新动态。</p>
+                    <div class="social-links">
+                        <a href=" https://xhslink.com/m/9AhmRX8wS0n" class="social-link">小红书: @覆野画社</a>
+                    </div>
+                    <p style="margin-top: 8px; color: var(--text-color);">视频号：覆野fy画社</p>
+                    <p style="margin-top: 8px; color: var(--text-color);">由于视频号无法分享链接需手动搜索</p>
+                </div>
+
+                <div class="contact-card">
+                    <h2>加入群聊</h2>
+                    <p style="margin-bottom: 20px; color: var(--text-light);">扫描下方二维码或私信管理员加入交流群（点击图片可查看大图）。</p>
+                    <div class="qr-container">
+                        <div class="qr-item">
+                            <img src="assets/images/ui/audit_qr.webp" alt="审核群二维码" class="zoomable-image">
+                            <span>审核群<br>(社员进社审核)</span>
+                        </div>
+                        <div class="qr-item">
+                            <img src="assets/images/ui/reception_qr.webp" alt="接待群二维码" class="zoomable-image">
+                            <span>接待群<br>(单主进群约稿)</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 15px;">
+                        <p>客服1微信: lioil120852</p>
+                        <p>客服2微信: Yu_520_Ming</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 覆野画社 ‖ 制作：咪噜喵MiruCat.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

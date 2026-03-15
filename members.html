@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>覆野画社 - 社员页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/favicon.webp" type="image/svg+xml"> 
+</head>
+<body>
+    <!-- 加载遮罩层 -->
+    <div id="loadingScreen" class="loading-screen">
+        <img class="loading-banner" src="assets/images/ui/loading.webp" alt="加载中">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">正在加载...</p>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">覆野画社</div>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="rules.html">规则页</a></li>
+                <li><a href="members.html" class="active">社员页</a></li>
+                <li><a href="announcements.html">公告页</a></li>
+                <li><a href="contact.html">联系页</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">◀社员名录▶</h1>
+            
+            <!-- 筛选系统 -->
+            <div class="filter-section">
+                <div class="search-bar" id="searchBarArea">
+                    <input type="text" id="searchInput" class="search-input" placeholder="搜索社员名称、职业、编号或业务名称...">
+                    <button id="toggleFilterBtn" class="toggle-filter-btn">展开筛选 ▽</button>
+                </div>
+                
+                <!-- 可展开的筛选面板 -->
+                <div id="filterPanel" class="filter-panel">
+                    <!-- 第一级：主要业务 -->
+                    <div class="filter-group">
+                        <span class="filter-label">主要业务 (单选)</span>
+                        <div class="tag-container" id="mainTagsContainer">
+                            <!-- JS 动态填充 -->
+                        </div>
+                    </div>
+
+                    <!-- 第二级：二级分类 -->
+                    <div id="subTagsWrapper" class="sub-tags-container">
+                        <!-- JS 动态填充 -->
+                    </div>
+
+                    <!-- 已选标签展示 -->
+                    <div class="selected-tags-bar" id="selectedTagsBar">
+                        <!-- 这里显示已选中的标签 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社员列表网格 -->
+            <div id="membersGrid" class="members-grid">
+                <!-- 由 JS 渲染社员卡片 -->
+            </div>
+            
+            <div id="noResults" style="display: none; text-align: center; margin-top: 50px; color: var(--text-light); font-size: 1.2rem;">
+                目前没有符合条件的社员哦~ 🍁
+            </div>
+
+            <!-- 分页控件 -->
+            <div class="pagination" id="pagination">
+                <select id="pageSelect" class="page-select"></select>
+                <div class="pagination-controls">
+                    <button id="prevPage" class="page-btn">&lt;</button>
+                    <span id="pageInfo" class="page-info">1 / 1</span>
+                    <button id="nextPage" class="page-btn">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 社员详情弹窗 -->
+    <div id="memberModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            
+            <div class="modal-header">
+                <img src="" alt="Avatar" id="modalAvatar" class="modal-avatar">
+                <div class="modal-info">
+                    <h2 id="modalName">Name</h2>
+                    <span id="modalProfession" class="profession">Profession</span>
+                    <span id="modalId" class="member-id"></span>
+                </div>
+            </div>
+            
+            <div id="modalIntro" class="modal-intro"></div>
+            
+            <div id="modalBusinesses" class="business-gallery">
+                <!-- 业务列表 -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 覆野画社 ‖ 制作：咪噜喵MiruCat.</p>
+        </div>
+    </footer>
+
+    <script src="js/members.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

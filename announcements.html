@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>覆野画社 - 公告页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/favicon.webp" type="image/svg+xml"> 
+</head>
+<body>
+    <!-- 加载遮罩层 -->
+    <div id="loadingScreen" class="loading-screen">
+        <img class="loading-banner" src="assets/images/ui/loading.webp" alt="加载中">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">正在加载...</p>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">覆野画社</div>
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="rules.html">规则页</a></li>
+                <li><a href="members.html">社员页</a></li>
+                <li><a href="announcements.html" class="active">公告页</a></li>
+                <li><a href="contact.html">联系页</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">公告栏</h1>
+
+            <!-- 最新公告 -->
+            <section style="margin-bottom: 50px;">
+                <h2 style="text-align: center; color: var(--accent);">最新公告</h2>
+                <div id="latestAnnouncement" class="announcement-card" style="border-left-color: var(--accent); transform: scale(1.02);">
+                    <!-- 由 JS 填充内容 -->
+                    <p style="text-align: center; color: var(--text-light);">暂无公告</p>
+                </div>
+            </section>
+
+            <!-- 往期历史 -->
+            <section>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>往期公告</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button id="sortBtn" class="btn btn-primary" style="font-size: 0.9rem;">切换顺序 ⇅</button>
+                    </div>
+                </div>
+
+                <div id="announcementList">
+                    <!-- 由 JS 填充列表 -->
+                </div>
+
+                <!-- 分页控件 -->
+                <div class="pagination" id="pagination">
+                    <select id="pageSelect" class="page-select"></select>
+                    <div class="pagination-controls">
+                        <button id="prevPage" class="page-btn">&lt;</button>
+                        <span id="pageInfo" class="page-info">1 / 1</span>
+                        <button id="nextPage" class="page-btn">&gt;</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 覆野画社 ‖ 制作：咪噜喵MiruCat.</p>
+        </div>
+    </footer>
+
+    <script src="js/announcements.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
