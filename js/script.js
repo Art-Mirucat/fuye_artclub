@@ -71,12 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 隐藏加载动画
+ * 隐藏加载动画 (加入暴力样式修正)
  */
 function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loadingScreen');
     if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
         loadingScreen.classList.add('hidden');
+        // 加入暴力显示修正，确保在特定浏览器下也能消失
+        setTimeout(() => { loadingScreen.style.display = 'none'; }, 500);
     }
 }
 
@@ -111,8 +113,11 @@ async function initResourceLoader() {
         }
     });
 
-    // 监听字体加载
-    const fontPromise = document.fonts.ready;
+    // 监听字体加载 (加入 race 机制防止字体下载卡死)
+    const fontPromise = Promise.race([
+        document.fonts.ready,
+        new Promise(resolve => setTimeout(resolve, 3000)) // 3秒没加载完就不等了
+    ]);
 
     // 等待图片和字体都就绪
     try {
@@ -131,5 +136,5 @@ window.addEventListener('load', () => {
     hideLoadingScreen();
 });
 
-// 如果 10 秒后还没加载完，强制关闭加载动画
-setTimeout(hideLoadingScreen, 10000);
+// 如果 5 秒后还没加载完，强制关闭加载动画 (将原本的10秒缩短，提升体验)
+setTimeout(hideLoadingScreen, 5000);
